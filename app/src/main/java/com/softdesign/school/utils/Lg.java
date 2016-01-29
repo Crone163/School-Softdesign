@@ -2,11 +2,7 @@ package com.softdesign.school.utils;
 
 import android.util.Log;
 
-/**
- * Зарефакторить код логера в соответствии с данными на лекции рекомендациями, исспользовать подход DRY Don’t repeat yourself (не повторяй себя) - 
- * т.е. избегаем повторения уже ранее написанного кода + Javadoc, 
- * логер должен исспользовать различные уровни вывода логов (Verbose, debug, info, error, warn, assert ).
- */
+
 public class Lg {
 
     private static final String PREFIX = "HTC ";
