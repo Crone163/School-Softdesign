@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/nav_header_height"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/drawer_header"
+    >
+
+    <!--
+    Navigation Drawer построен по следующей схеме:
+    - выключен fitsSystemWindow чтобы панель не заходила за статус бар.
+    - родитель RelativeLayout. 160dp.
+    - LinearLayout(veritcal) с двумя TextView(name,email), отступы по 16dp справа и слева. 56dp.
+    - RelativeLayout c ImageView(avatar) и RelativeLayout в котором TextView(rating),
+        отступы по 16dp справа и слева, ширина и длина - match_parent.
+    - ImageView(avatar) отступ снизу 8dp и parentStart, RelativeLayout с TextView(rating)
+         прикреплен к верху ImageView(avatar) и parentEnd.
+    -->
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/drawer_sub_title"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/drawer_sub_left"
+        android:layout_marginRight="@dimen/drawer_sub_right"
+        android:id="@+id/subTitle">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/student.fio"
+            android:id="@+id/textView"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:textColor="@android:color/white"
+
+            android:fontFamily="@string/roboto.medium"
+            android:textSize="@dimen/drawer_fio_textsize" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/student.email"
+            android:id="@+id/textView7"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:textColor="@android:color/white"
+            android:fontFamily="@string/roboto.regular"
+            android:textSize="@dimen/drawer_email_textsize" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/subTitle"
+        android:id="@+id/drawerImages"
+        android:layout_marginLeft="@dimen/drawer_sub_left"
+        android:layout_marginRight="@dimen/drawer_sub_right">
+
+
+        <RelativeLayout
+            android:layout_width="@dimen/drawer_rating_size"
+            android:layout_height="@dimen/drawer_rating_size"
+            android:background="@drawable/drawer_rating"
+            android:layout_alignTop="@+id/drawerAvatar"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/student.rating"
+                android:id="@+id/textView3"
+                android:textColor="@color/white"
+                android:fontFamily="@string/roboto.medium"
+                android:textSize="@dimen/drawer_rating_textsize"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+
+
+            <ImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:id="@+id/drawerAvatar"
+            android:layout_centerVertical="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="@dimen/drawer_avatar_marginbottom" />
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
