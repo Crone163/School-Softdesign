@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
         params = (AppBarLayout.LayoutParams) mCollapsingToolbarLayout.getLayoutParams();
         if(collapse){
 
-            mAppBar.setExpanded(false, true);
+            mAppBar.setExpanded(false);
             AppBarLayout.OnOffsetChangedListener mListener = new AppBarLayout.OnOffsetChangedListener() {
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
