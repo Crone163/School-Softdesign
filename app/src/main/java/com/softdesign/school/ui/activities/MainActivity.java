@@ -296,23 +296,23 @@ public class MainActivity extends AppCompatActivity {
         Lg.e(TAG, "Found fragment: " + backFragment);
 
         if(backFragment  instanceof ProfileFragment) {
-            mNavigationView.getMenu().findItem(R.id.drawer_profile).setChecked(true);
+            setChecker(mNavigationView.getMenu().findItem(R.id.drawer_profile));
         }
 
         if(backFragment  instanceof ContactsFragment) {
-            mNavigationView.getMenu().findItem(R.id.drawer_contacts).setChecked(true);
+            setChecker(mNavigationView.getMenu().findItem(R.id.drawer_contacts));
         }
 
         if(backFragment  instanceof TeamFragment) {
-            mNavigationView.getMenu().findItem(R.id.drawer_team).setChecked(true);
+            setChecker(mNavigationView.getMenu().findItem(R.id.drawer_team));
         }
 
         if(backFragment  instanceof TaskFragment) {
-            mNavigationView.getMenu().findItem(R.id.drawer_task).setChecked(true);
+            setChecker(mNavigationView.getMenu().findItem(R.id.drawer_task));
         }
 
         if(backFragment  instanceof SettingFragment) {
-            mNavigationView.getMenu().findItem(R.id.drawer_setting).setChecked(true);
+            setChecker(mNavigationView.getMenu().findItem(R.id.drawer_setting));
         }
     }
 
