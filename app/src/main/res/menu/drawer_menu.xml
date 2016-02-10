@@ -30,7 +30,7 @@
     <item
         android:id="@+id/drawer_setting"
         android:checked="false"
-        android:icon="@drawable/ic_border_color_24dp"
+        android:icon="@drawable/ic_settings_24dp"
         android:title="@string/drawer.setting"/>
 
 

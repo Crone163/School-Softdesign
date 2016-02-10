@@ -1,6 +1,7 @@
 package com.softdesign.school.ui.activities;
 
 
+
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -12,6 +13,7 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
+
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
@@ -25,6 +27,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.softdesign.school.R;
@@ -33,6 +36,7 @@ import com.softdesign.school.ui.fragments.ProfileFragment;
 import com.softdesign.school.ui.fragments.SettingFragment;
 import com.softdesign.school.ui.fragments.TaskFragment;
 import com.softdesign.school.ui.fragments.TeamFragment;
+import com.softdesign.school.utils.BlockToolbar;
 import com.softdesign.school.utils.Lg;
 
 
@@ -56,6 +60,11 @@ public class MainActivity extends AppCompatActivity {
     private View mHeaderView;
     private AppBarLayout mAppBar;
 
+    private TextView mRatingTextViewND;
+    private TextView mRatingTextViewProfile;
+
+
+
     AppBarLayout.LayoutParams params = null;
 
     @Override
@@ -75,12 +84,17 @@ public class MainActivity extends AppCompatActivity {
         // задаем круглый bitmap
         Bitmap bm = BitmapFactory.decodeResource(getResources(),R.drawable.avatar);
         mImageView.setImageBitmap(getCircleBitmap(bm));
-
+        // TextView в Navigation Drawer
+        mRatingTextViewND = (TextView)mHeaderView.findViewById(R.id.textView3);
+        // TextView в фрагменте Profile
+        mRatingTextViewProfile = (TextView)findViewById(R.id.textView3);
         setupToolbar();
         setupDrawer();
 
+
+
         if(savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_container,new ProfileFragment(),FRAGMENT_TAG).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,new ProfileFragment(),FRAGMENT_TAG).commit();
             //устанавливаем цвет выделения первому айтему
             mItem = mNavigationView.getMenu().findItem(R.id.drawer_profile);
             mItem.setCheckable(true);
@@ -90,6 +104,12 @@ public class MainActivity extends AppCompatActivity {
         pressBackToast = Toast.makeText(getApplicationContext(), R.string.press_back_again_to_exit,
                 Toast.LENGTH_SHORT);
 
+    }
+
+    /** @param rating - заполняем рейтинг текст вью в Navigation Drawer и в фрагменте Profile */
+    public void setRatingText(String rating){
+     mRatingTextViewND.setText(rating);
+     mRatingTextViewProfile.setText(rating);
     }
 
     /**
@@ -107,11 +127,11 @@ public class MainActivity extends AppCompatActivity {
                      if(mCollapsingToolbarLayout.getHeight() + verticalOffset <= ViewCompat.getMinimumHeight(mCollapsingToolbarLayout) + getStatusBarHeight()){
                           params.setScrollFlags(0);
                           mCollapsingToolbarLayout.setLayoutParams(params);
-                          mAppBar.removeOnOffsetChangedListener(this);
+
                       }
                   }
             };
-            mAppBar.addOnOffsetChangedListener(mListener);
+
 
         } else {
             mAppBar.setExpanded(true);
@@ -119,6 +139,7 @@ public class MainActivity extends AppCompatActivity {
             mCollapsingToolbarLayout.setLayoutParams(params);
 
         }
+
     }
 
     private void setupDrawer(){
@@ -153,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if (mFragment != null) {
                     //используем фрагмент тег, чтобы определять какой фрагмент вернулся в onBackPressed
-                    getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_container, mFragment, FRAGMENT_TAG).addToBackStack(null).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, mFragment, FRAGMENT_TAG).addToBackStack(null).commit();
                 }
 
                 mDrawerLayout.closeDrawers();
@@ -164,6 +185,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    /** Задаем текст в CollapsToolBar */
+    public void setCollapsTitle(CharSequence title) {
+        mCollapsingToolbarLayout.setTitle(title);
     }
 
     /** Задаем выделение выбранного пункта меню  */
@@ -211,6 +237,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
         Lg.e(this.getClass().getSimpleName(),"onStart()");
     }
 
@@ -263,6 +290,8 @@ public class MainActivity extends AppCompatActivity {
         mItem = mNavigationView.getMenu().findItem(savedInstanceState.getInt(CHECKED_KEY));
         mItem.setCheckable(true);
         mItem.setChecked(true);
+
+
 
     }
 

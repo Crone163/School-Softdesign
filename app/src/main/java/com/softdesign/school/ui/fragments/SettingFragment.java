@@ -18,7 +18,7 @@ public class SettingFragment extends Fragment{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View convertView = inflater.inflate(R.layout.fragment_setting,null,false);
+        View convertView = inflater.inflate(R.layout.fragment_setting,container,false);
         getActivity().setTitle(getResources().getString(R.string.drawer_setting));
         ((MainActivity) getActivity()).lockAppBar(true);
         return convertView;

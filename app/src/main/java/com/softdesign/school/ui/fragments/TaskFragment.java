@@ -18,7 +18,7 @@ public class TaskFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View convertView = inflater.inflate(R.layout.fragment_task,null,false);
+        View convertView = inflater.inflate(R.layout.fragment_task,container,false);
         getActivity().setTitle(getResources().getString(R.string.drawer_tasks));
         ((MainActivity) getActivity()).lockAppBar(true);
         return convertView;

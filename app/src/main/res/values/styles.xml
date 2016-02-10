@@ -12,4 +12,44 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
+    <!-- Styles for Profile Fragment -->
+    <style name="profile_relative_layout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/item_height</item>
+    </style>
+
+    <style name="profile_image_view">
+        <item name="android:layout_width">@dimen/profile_icon_size</item>
+        <item name="android:layout_height">@dimen/profile_icon_size</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <style name="profile_linear_layout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentLeft">true</item>
+
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingLeft">@dimen/profile_text_margin</item>
+    </style>
+
+    <style name="profile_textview">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/profile_text_size</item>
+    </style>
+
+    <style name="profile_separator">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@android:color/darker_gray</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_marginLeft">@dimen/profile_text_margin</item>
+    </style>
+
+
+
 </resources>

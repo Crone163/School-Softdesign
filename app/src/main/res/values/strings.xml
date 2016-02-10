@@ -29,7 +29,19 @@
     <string name="roboto.condensed">sans-serif-condensed</string>
     <string name="roboto.thin">sans-serif-thin</string>
     <string name="roboto.medium">sans-serif-medium</string>
+    <string name="my_fio">Александр Милихин</string>
 
+    <!-- ProfileFragment -->
+    <string name="profile.number.mobile">+7 (960) 837-98-95</string>
+    <string name="profile.number.description">Мобильный</string>
+    <string name="profile.email.email">defrag163@mail.ru</string>
+    <string name="profile.email.description">E-mail</string>
+    <string name="profile.vk.link">vk.com/id76698232</string>
+    <string name="profile.vk.description">VK</string>
+    <string name="profile.git.link">github.com/Crone163/School-Softdesign</string>
+    <string name="profile.git.description">GitHub</string>
+    <string name="profile.about.text">Люблю программировать, путешествовать и слушать английскую музыку.</string>
+    <string name="profile.about.description">О себе</string>
 
 
 </resources>
