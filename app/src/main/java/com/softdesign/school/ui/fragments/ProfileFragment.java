@@ -18,17 +18,22 @@ import com.softdesign.school.R;
 import com.softdesign.school.ui.activities.MainActivity;
 import com.softdesign.school.utils.BlockToolbar;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 
 /**
  * Created by CRN_soft on 19.01.2016.
  */
 public class ProfileFragment extends Fragment {
-    private FloatingActionButton mFab;
-    private View mView;
+
+    @Bind(R.id.fab) FloatingActionButton mFab;
+    @Bind(R.id.appbar_layout)AppBarLayout appBar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mView = inflater.inflate(R.layout.fragment_profile, container, false);
+        View mView = inflater.inflate(R.layout.fragment_profile, container, false);
+        ButterKnife.bind(this,getActivity());
 
         // подключаемся к MainActivity и задаем параметры
         MainActivity activity = ((MainActivity) getActivity());
@@ -36,7 +41,7 @@ public class ProfileFragment extends Fragment {
         activity.setRatingText("44");
         activity.setCollapsTitle(getResources().getString(R.string.my_fio));
 
-        mFab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
+
         return mView;
     }
 
@@ -59,7 +64,6 @@ public class ProfileFragment extends Fragment {
         mFab.setImageResource(R.drawable.ic_mode_edit_24dp);
 
         // разблокируем коллапстулбар
-        AppBarLayout appBar = (AppBarLayout) getActivity().findViewById(R.id.appbar_layout);
         appBar.setExpanded(true);
         BlockToolbar.setDrag(true, appBar);
     }

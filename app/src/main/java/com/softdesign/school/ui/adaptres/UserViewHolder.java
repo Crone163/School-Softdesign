@@ -12,10 +12,12 @@ import android.widget.TextView;
 
 import com.softdesign.school.R;
 
+import butterknife.Bind;
+
 public class UserViewHolder extends RecyclerView.ViewHolder {
 
-    protected TextView fullName;
-    protected ImageView avatar;
+    @Bind(R.id.user_name) TextView fullName;
+    @Bind(R.id.user_avatar) ImageView avatar;
 
     public UserViewHolder(View itemView) {
         super(itemView);

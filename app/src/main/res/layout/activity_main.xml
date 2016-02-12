@@ -20,17 +20,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fitsSystemWindows="true"
-
             android:theme="@style/AppTheme.AppBarOverlay">
 
             <!--app:expanded="false"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"-->
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            Если не установить скрол флаги, то тулбар будет выпадать при повороте экрана.
+            -->
 
             <android.support.design.widget.CollapsingToolbarLayout
                 android:id="@+id/collapse_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fitsSystemWindows="true"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
                 app:expandedTitleTextAppearance="?android:attr/textAppearanceLarge"
                 app:expandedTitleMarginStart="@dimen/toolbar_collapsing_margin_start"
                 app:contentScrim="@color/color_primary">
@@ -63,7 +65,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/student.rating"
-                        android:id="@+id/textView3"
+                        android:id="@+id/profile_rating"
                         android:textColor="@color/white"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:fontFamily="@string/roboto.medium"

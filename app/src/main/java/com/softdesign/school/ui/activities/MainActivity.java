@@ -39,6 +39,9 @@ import com.softdesign.school.ui.fragments.TeamFragment;
 import com.softdesign.school.utils.BlockToolbar;
 import com.softdesign.school.utils.Lg;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -48,20 +51,20 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     private static final long TRASH_HOLD_BACK = 3500;
 
-    private Toolbar mToolBar;
-    private NavigationView mNavigationView;
-    private DrawerLayout mDrawerLayout;
     private Fragment mFragment;
     private Toast pressBackToast;
     private long mLastBackPress;
     private MenuItem mItem;
     private ImageView mImageView;
-    private CollapsingToolbarLayout mCollapsingToolbarLayout;
-    private View mHeaderView;
-    private AppBarLayout mAppBar;
-
     private TextView mRatingTextViewND;
-    private TextView mRatingTextViewProfile;
+
+    @Bind(R.id.toolbar) Toolbar mToolBar;
+    @Bind(R.id.navigation_view) NavigationView mNavigationView;
+    @Bind(R.id.navigation_drawer) DrawerLayout mDrawerLayout;
+    @Bind(R.id.collapse_toolbar) CollapsingToolbarLayout mCollapsingToolbarLayout;
+    @Bind(R.id.appbar_layout) AppBarLayout mAppBar;
+    // TextView в фрагменте Profile
+    @Bind(R.id.profile_rating) TextView mRatingTextViewProfile;
 
 
 
@@ -71,26 +74,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Lg.e(this.getClass().getSimpleName(), "onCreate()");
-
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.navigation_drawer);
-        mNavigationView = (NavigationView) findViewById(R.id.navigation_view);
-        mToolBar = (Toolbar) findViewById(R.id.toolbar);
-        mCollapsingToolbarLayout = (CollapsingToolbarLayout)findViewById(R.id.collapse_toolbar);
-        mAppBar = (AppBarLayout) findViewById(R.id.appbar_layout);
+        // инициализация библиотеки ButterKnife
+        ButterKnife.bind(this);
         //задаем программно app:headerLayout, чтобы определить вьюхи внутри navigation_header'a.
-        mHeaderView = mNavigationView.inflateHeaderView(R.layout.navigation_header);
+        View mHeaderView = mNavigationView.inflateHeaderView(R.layout.navigation_header);
         mImageView = (ImageView) mHeaderView.findViewById(R.id.drawerAvatar);
         // задаем круглый bitmap
         Bitmap bm = BitmapFactory.decodeResource(getResources(),R.drawable.avatar);
         mImageView.setImageBitmap(getCircleBitmap(bm));
         // TextView в Navigation Drawer
-        mRatingTextViewND = (TextView)mHeaderView.findViewById(R.id.textView3);
-        // TextView в фрагменте Profile
-        mRatingTextViewProfile = (TextView)findViewById(R.id.textView3);
+        mRatingTextViewND = (TextView)mHeaderView.findViewById(R.id.drawer_rating);
+
+
         setupToolbar();
         setupDrawer();
-
 
 
         if(savedInstanceState == null) {
@@ -103,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
 
         pressBackToast = Toast.makeText(getApplicationContext(), R.string.press_back_again_to_exit,
                 Toast.LENGTH_SHORT);
-
+        Lg.e(this.getClass().getSimpleName(), "onCreate()");
     }
 
     /** @param rating - заполняем рейтинг текст вью в Navigation Drawer и в фрагменте Profile */

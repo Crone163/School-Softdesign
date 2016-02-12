@@ -25,6 +25,9 @@ import com.softdesign.school.utils.BlockToolbar;
 
 import java.util.ArrayList;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 /**
  * Created by CRN_soft on 01.02.2016.
  */
@@ -34,8 +37,9 @@ public class ContactsFragment extends Fragment {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     ArrayList<User> mUsers = new ArrayList<>();
-    private View mView;
-    private FloatingActionButton mFab;
+
+    @Bind(R.id.fab) FloatingActionButton mFab;
+    @Bind(R.id.appbar_layout)AppBarLayout appBar;
 
     /** Записываем статические данные в массивы, перед созданием вьюх */
     @Override
@@ -49,8 +53,9 @@ public class ContactsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        mView = inflater.inflate(R.layout.fragment_contacts, container, false);
+        View mView = inflater.inflate(R.layout.fragment_contacts, container, false);
         getActivity().setTitle(getResources().getString(R.string.drawer_contacts));
+        ButterKnife.bind(this,getActivity());
 
         MainActivity activity = ((MainActivity) getActivity());
         activity.lockAppBar(true);
@@ -63,7 +68,6 @@ public class ContactsFragment extends Fragment {
         // запрещаем скролл колапстулбара для ресайкл вью
         mRecyclerView.setNestedScrollingEnabled(false);
 
-        mFab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
         return mView;
     }
 
@@ -87,10 +91,11 @@ public class ContactsFragment extends Fragment {
         mFab.setImageResource(R.drawable.ic_mail_24dp);
 
         // блокируем коллапстулбар
-        AppBarLayout appBar = (AppBarLayout) getActivity().findViewById(R.id.appbar_layout);
         appBar.setExpanded(false, false);
         BlockToolbar.setDrag(false, appBar);
     }
+
+
 
     private void generateData() {
         mUsers.add(new User(getResources().getDrawable(R.drawable.ic_account_circle_24dp), "Евгений", "Осипов"));
