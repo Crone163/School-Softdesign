@@ -1,10 +1,47 @@
 <resources>
     <string name="app_name">My Application</string>
 
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
 
-    <string name="btn_text_blue">blue</string>
-    <string name="btn_text_red">red</string>
-    <string name="btn_text_green">green</string>
+    <!-- меню -->
+    <string name="drawer.profile">Профиль</string>
+    <string name="drawer.contacts">Контакты</string>
+    <string name="drawer.tasks">Задачи</string>
+    <string name="drawer.team">Команда</string>
+    <string name="drawer.setting">Настройки</string>
+
+    <string name="fragment.contacts.description">Здесь буду контакты</string>
+    <string name="fragment.profile.description">Здесь будет профайл</string>
+    <string name="fragment.task.description">Здесь будут задачи</string>
+    <string name="fragment.team.description">Здесь будет команда</string>
+    <string name="fragment.setting.description">Здесь будут настройки</string>
+
+
+    <string name="press_back_again_to_exit">Нажмите назад для выхода</string>
+
+    <!--  данные -->
+    <string name="student.fio">Александр Милихин</string>
+    <string name="student.email">defrag163@mail.ru</string>
+    <string name="student.rating">5</string>
+
+    <!-- шрифты -->
+    <string name="roboto.regular">sans-serif</string>
+    <string name="roboto.light">sans-serif-light</string>
+    <string name="roboto.condensed">sans-serif-condensed</string>
+    <string name="roboto.thin">sans-serif-thin</string>
+    <string name="roboto.medium">sans-serif-medium</string>
+    <string name="my_fio">Александр Милихин</string>
+
+    <!-- ProfileFragment -->
+    <string name="profile.number.mobile">+7 (960) 837-98-95</string>
+    <string name="profile.number.description">Мобильный</string>
+    <string name="profile.email.email">defrag163@mail.ru</string>
+    <string name="profile.email.description">E-mail</string>
+    <string name="profile.vk.link">vk.com/id76698232</string>
+    <string name="profile.vk.description">VK</string>
+    <string name="profile.git.link">github.com/Crone163/School-Softdesign</string>
+    <string name="profile.git.description">GitHub</string>
+    <string name="profile.about.text">Люблю программировать, путешествовать и слушать английскую музыку.</string>
+    <string name="profile.about.description">О себе</string>
+
+
 </resources>

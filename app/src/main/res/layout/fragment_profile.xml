@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin">
+
+        <RelativeLayout
+            android:id="@+id/profile_number"
+            style="@style/profile_relative_layout"
+            android:layout_alignParentTop="true">
+
+            <ImageView
+                style="@style/profile_image_view"
+                android:src="@drawable/profile_mobile_icon" />
+
+            <LinearLayout style="@style/profile_linear_layout">
+
+                <TextView
+                    style="@style/profile_textview"
+                    android:fontFamily="@string/roboto.medium"
+                    android:text="@string/profile.number.mobile"
+                    android:textStyle="bold" />
+
+                <TextView
+                    style="@style/profile_textview"
+                    android:fontFamily="@string/roboto.regular"
+                    android:text="@string/profile.number.description" />
+
+            </LinearLayout>
+
+            <View style="@style/profile_separator" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/profile_email"
+            style="@style/profile_relative_layout"
+            android:layout_alignLeft="@+id/profile_number"
+            android:layout_below="@+id/profile_number">
+
+            <ImageView
+                style="@style/profile_image_view"
+                android:src="@drawable/profile_email_icon" />
+
+            <LinearLayout style="@style/profile_linear_layout">
+
+                <TextView
+                    style="@style/profile_textview"
+                    android:fontFamily="@string/roboto.medium"
+                    android:text="@string/profile.email.email"
+                    android:textStyle="bold" />
+
+                <TextView
+                    style="@style/profile_textview"
+                    android:fontFamily="@string/roboto.regular"
+                    android:text="@string/profile.email.description" />
+
+            </LinearLayout>
+
+            <View style="@style/profile_separator" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/profile_vk"
+            style="@style/profile_relative_layout"
+            android:layout_alignLeft="@+id/profile_email"
+            android:layout_below="@+id/profile_email">
+
+            <ImageView
+                style="@style/profile_image_view"
+                android:src="@drawable/profile_vk_icon" />
+
+            <LinearLayout style="@style/profile_linear_layout">
+
+                <TextView
+                    style="@style/profile_textview"
+                    android:fontFamily="@string/roboto.medium"
+                    android:text="@string/profile.vk.link"
+                    android:textStyle="bold" />
+
+                <TextView
+                    style="@style/profile_textview"
+                    android:fontFamily="@string/roboto.regular"
+                    android:text="@string/profile.vk.description" />
+
+            </LinearLayout>
+
+            <View style="@style/profile_separator" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/profile_git"
+            style="@style/profile_relative_layout"
+            android:layout_alignLeft="@+id/profile_vk"
+            android:layout_below="@+id/profile_vk">
+
+            <ImageView
+                style="@style/profile_image_view"
+                android:src="@drawable/profile_git_icon" />
+
+            <LinearLayout style="@style/profile_linear_layout">
+
+                <TextView
+                    style="@style/profile_textview"
+                    android:fontFamily="@string/roboto.medium"
+                    android:text="@string/profile.git.link"
+                    android:textStyle="bold" />
+
+                <TextView
+                    style="@style/profile_textview"
+                    android:fontFamily="@string/roboto.regular"
+                    android:text="@string/profile.git.description" />
+
+            </LinearLayout>
+
+            <View style="@style/profile_separator" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/profile_about"
+            style="@style/profile_relative_layout"
+            android:layout_alignLeft="@+id/profile_git"
+            android:layout_below="@+id/profile_git">
+
+            <ImageView
+                style="@style/profile_image_view"
+                android:src="@drawable/ic_info_24dp" />
+
+            <LinearLayout style="@style/profile_linear_layout">
+
+                <TextView
+                    style="@style/profile_textview"
+                    android:fontFamily="@string/roboto.medium"
+                    android:text="@string/profile.about.text"
+                    android:textStyle="bold" />
+
+                <TextView
+                    style="@style/profile_textview"
+                    android:fontFamily="@string/roboto.regular"
+                    android:text="@string/profile.about.description" />
+
+            </LinearLayout>
+        </RelativeLayout>
+
+    </RelativeLayout>
+</android.support.v4.widget.NestedScrollView>
