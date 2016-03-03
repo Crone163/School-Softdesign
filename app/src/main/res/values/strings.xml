@@ -42,6 +42,8 @@
     <string name="profile.git.description">GitHub</string>
     <string name="profile.about.text">Люблю программировать, путешествовать и слушать английскую музыку.</string>
     <string name="profile.about.description">О себе</string>
+    <string name="button_orm_add_team">Add team</string>
+    <string name="button_orm_add_user">Add user</string>
 
 
 </resources>
